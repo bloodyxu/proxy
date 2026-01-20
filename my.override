@@ -1,0 +1,14 @@
+name: AI 相关规则覆盖
+desc: 添加自定义 AI 相关规则到配置文件中
+
+rules:
+  - DOMAIN-KEYWORD,notebooklm,AI
+  - DOMAIN-KEYWORD,mixboard,AI
+  - PROCESS-NAME,Cursor Helper,AI
+  - PROCESS-NAME,Cursor Helper (Plugin),AI
+  - PROCESS-NAME,Antigravity Helper,AI
+  - DOMAIN-KEYWORD,cursor.sh,AI
+  - DOMAIN-KEYWORD,labs.google,AI
+  - DOMAIN-KEYWORD,dia,AI
+  - DOMAIN-KEYWORD,stitch,AI
+  - DOMAIN-KEYWORD,jules.google.com,AI
