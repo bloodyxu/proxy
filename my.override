@@ -12,3 +12,4 @@ rules:
   - DOMAIN-KEYWORD,dia,AI
   - DOMAIN-KEYWORD,stitch,AI
   - DOMAIN-KEYWORD,jules.google.com,AI
+  - DOMAIN-KEYWORD,notion,AI
