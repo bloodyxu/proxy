@@ -13,3 +13,4 @@ rules:
   - DOMAIN-KEYWORD,stitch,AI
   - DOMAIN-KEYWORD,jules.google.com,AI
   - DOMAIN-KEYWORD,notion,AI
+  - DOMAIN-KEYWORD,gemini,AI
