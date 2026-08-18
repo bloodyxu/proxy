@@ -15,3 +15,7 @@ rules:
   - DOMAIN-KEYWORD,notion,AI
   - DOMAIN-KEYWORD,google,AI
   - DOMAIN-KEYWORD,gemini.google.com,AI
+  - DOMAIN-KEYWORD,xiaohongshu,DIRECT
+  - DOMAIN-KEYWORD,xhslink,DIRECT
+  - DOMAIN-KEYWORD,xhscdn,DIRECT
+  - DOMAIN-KEYWORD,qunar,DIRECT
