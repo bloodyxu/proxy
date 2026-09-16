@@ -6,7 +6,23 @@ rules:
   - DOMAIN-KEYWORD,mixboard,AI
   - PROCESS-NAME,Cursor Helper,AI
   - PROCESS-NAME,Cursor Helper (Plugin),AI
+  # Google Antigravity 客户端：IDE 主进程 + 各 Helper + 应用包内全部组件
+  - PROCESS-NAME,Antigravity,AI
   - PROCESS-NAME,Antigravity Helper,AI
+  - PROCESS-NAME,Antigravity Helper (GPU),AI
+  - PROCESS-NAME,Antigravity Helper (Plugin),AI
+  - PROCESS-NAME,Antigravity Helper (Renderer),AI
+  - PROCESS-NAME,/Applications/Antigravity.app/,AI
+  # Google Antigravity CLI / 语言服务：agy、antigravity、language_server*
+  - PROCESS-NAME,agy,AI
+  - PROCESS-NAME,antigravity,AI
+  - PROCESS-NAME,language_server,AI
+  - PROCESS-NAME,language_server_macos,AI
+  - PROCESS-NAME,language_server_macos_arm,AI
+  # Antigravity 相关域名兜底
+  - DOMAIN-KEYWORD,antigravity,AI
+  - DOMAIN-SUFFIX,cloudcode-pa.googleapis.com,AI
+  - DOMAIN-SUFFIX,daily-cloudcode-pa.googleapis.com,AI
   - DOMAIN-KEYWORD,cursor.sh,AI
   - DOMAIN-KEYWORD,labs.google,AI
   - DOMAIN-KEYWORD,dia,AI
