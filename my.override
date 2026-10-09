@@ -31,6 +31,9 @@ rules:
   - DOMAIN-KEYWORD,notion,AI
   - DOMAIN-KEYWORD,google,AI
   - DOMAIN-KEYWORD,gemini.google.com,AI
+  - DOMAIN-SUFFIX,muse.ai,AI
+  - DOMAIN-SUFFIX,ai.meta.com,AI
+  - DOMAIN-SUFFIX,developer.meta.com,AI
   - DOMAIN-KEYWORD,xiaohongshu,DIRECT
   - DOMAIN-KEYWORD,xhslink,DIRECT
   - DOMAIN-KEYWORD,xhscdn,DIRECT
