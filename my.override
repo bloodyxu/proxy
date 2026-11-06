@@ -1,5 +1,37 @@
 name: AI 相关规则覆盖
-desc: 添加自定义 AI 相关规则到配置文件中
+desc: 添加自定义 AI 相关规则到配置文件中（OpenAI 走新加坡节点，Claude 走美国节点）
+
+# OpenAI 专属：自动测速 + 手动选择（候选为名称含新加坡/SG/🇸🇬 的节点）
+proxy-groups:
+  - name: OpenAI-Auto
+    type: url-test
+    hidden: true
+    include-all: true
+    filter: '🇸🇬|新加坡|[Ss]ingapore|\bSG\b'
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: OpenAI
+    type: select
+    proxies:
+      - OpenAI-Auto
+    include-all: true
+    filter: '🇸🇬|新加坡|[Ss]ingapore|\bSG\b'
+  # Claude 专属：自动测速 + 手动选择（候选为名称含美国/US/🇺🇸 的节点）
+  - name: Claude-Auto
+    type: url-test
+    hidden: true
+    include-all: true
+    filter: '🇺🇸|美国|[Uu]nited [Ss]tates|\bUS\b'
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: Claude
+    type: select
+    proxies:
+      - Claude-Auto
+    include-all: true
+    filter: '🇺🇸|美国|[Uu]nited [Ss]tates|\bUS\b'
 
 rules:
   - DOMAIN-KEYWORD,notebooklm,AI
@@ -35,38 +67,38 @@ rules:
   - DOMAIN-SUFFIX,ai.meta.com,AI
   - DOMAIN-SUFFIX,developer.meta.com,AI
   # Claude / Anthropic：网页、API、Console、制品与 MCP 沙箱
-  - DOMAIN-SUFFIX,anthropic.com,AI
-  - DOMAIN-SUFFIX,claude.ai,AI
-  - DOMAIN-SUFFIX,claude.com,AI
-  - DOMAIN-SUFFIX,claudeusercontent.com,AI
-  - DOMAIN-SUFFIX,clau.de,AI
-  - DOMAIN-SUFFIX,claudemcpcontent.com,AI
-  - DOMAIN-SUFFIX,claudemcpclient.com,AI
-  - DOMAIN,servd-anthropic-website.b-cdn.net,AI
+  - DOMAIN-SUFFIX,anthropic.com,Claude
+  - DOMAIN-SUFFIX,claude.ai,Claude
+  - DOMAIN-SUFFIX,claude.com,Claude
+  - DOMAIN-SUFFIX,claudeusercontent.com,Claude
+  - DOMAIN-SUFFIX,clau.de,Claude
+  - DOMAIN-SUFFIX,claudemcpcontent.com,Claude
+  - DOMAIN-SUFFIX,claudemcpclient.com,Claude
+  - DOMAIN,servd-anthropic-website.b-cdn.net,Claude
   # OpenAI / ChatGPT / Codex：桌面端、CLI、Computer Use，以及浏览器访问的官方域名
-  - PROCESS-NAME,ChatGPT,AI
-  - PROCESS-NAME,Codex (Service),AI
-  - PROCESS-NAME,Codex (Renderer),AI
-  - PROCESS-NAME,codex,AI
-  - PROCESS-NAME,SkyComputerUseClient,AI
-  - PROCESS-NAME,SkyComputerUseService,AI
-  - PROCESS-NAME,/Applications/ChatGPT.app/,AI
-  - PROCESS-NAME,/.codex/,AI
-  - PROCESS-NAME,/Application Support/Codex/,AI
-  - PROCESS-NAME,/Application Support/OpenAI/,AI
-  - DOMAIN-SUFFIX,openai.com,AI
-  - DOMAIN-SUFFIX,chatgpt.com,AI
-  - DOMAIN-SUFFIX,oaistatic.com,AI
-  - DOMAIN-SUFFIX,oaiusercontent.com,AI
-  - DOMAIN-SUFFIX,openaiapi-site.azureedge.net,AI
-  - DOMAIN-SUFFIX,openaicom.imgix.net,AI
-  - DOMAIN-SUFFIX,openaicomproductionae4b.blob.core.windows.net,AI
-  - DOMAIN-SUFFIX,production-openaicom-storage.azureedge.net,AI
-  - DOMAIN-SUFFIX,chatgpt.livekit.cloud,AI
-  - DOMAIN-SUFFIX,chat.com,AI
-  - DOMAIN-SUFFIX,ai.com,AI
-  - DOMAIN-KEYWORD,openai,AI
-  - DOMAIN-KEYWORD,chatgpt,AI
+  - PROCESS-NAME,ChatGPT,OpenAI
+  - PROCESS-NAME,Codex (Service),OpenAI
+  - PROCESS-NAME,Codex (Renderer),OpenAI
+  - PROCESS-NAME,codex,OpenAI
+  - PROCESS-NAME,SkyComputerUseClient,OpenAI
+  - PROCESS-NAME,SkyComputerUseService,OpenAI
+  - PROCESS-NAME,/Applications/ChatGPT.app/,OpenAI
+  - PROCESS-NAME,/.codex/,OpenAI
+  - PROCESS-NAME,/Application Support/Codex/,OpenAI
+  - PROCESS-NAME,/Application Support/OpenAI/,OpenAI
+  - DOMAIN-SUFFIX,openai.com,OpenAI
+  - DOMAIN-SUFFIX,chatgpt.com,OpenAI
+  - DOMAIN-SUFFIX,oaistatic.com,OpenAI
+  - DOMAIN-SUFFIX,oaiusercontent.com,OpenAI
+  - DOMAIN-SUFFIX,openaiapi-site.azureedge.net,OpenAI
+  - DOMAIN-SUFFIX,openaicom.imgix.net,OpenAI
+  - DOMAIN-SUFFIX,openaicomproductionae4b.blob.core.windows.net,OpenAI
+  - DOMAIN-SUFFIX,production-openaicom-storage.azureedge.net,OpenAI
+  - DOMAIN-SUFFIX,chatgpt.livekit.cloud,OpenAI
+  - DOMAIN-SUFFIX,chat.com,OpenAI
+  - DOMAIN-SUFFIX,ai.com,OpenAI
+  - DOMAIN-KEYWORD,openai,OpenAI
+  - DOMAIN-KEYWORD,chatgpt,OpenAI
   - DOMAIN-KEYWORD,xiaohongshu,DIRECT
   - DOMAIN-KEYWORD,xhslink,DIRECT
   - DOMAIN-KEYWORD,xhscdn,DIRECT
