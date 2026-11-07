@@ -34,6 +34,8 @@ proxy-groups:
     filter: '🇺🇸|美国|[Uu]nited [Ss]tates|\bUS\b'
 
 rules:
+  # 指定 IP 直连（优先级最高，放在规则最前）
+  - IP-CIDR,201.18.220.240/32,DIRECT,no-resolve
   - DOMAIN-KEYWORD,notebooklm,AI
   - DOMAIN-KEYWORD,mixboard,AI
   - PROCESS-NAME,Cursor Helper,AI
